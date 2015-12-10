@@ -1,0 +1,66 @@
+CREATE TRIGGER insert_zakat_fitrah
+AFTER
+INSERT ON tbl_zakat_fitrah
+FOR EACH ROW
+INSERT INTO log_zakat_fitrah(aktifitas, waktu, id_zakat, jenis, jumlah, sesi)
+VALUES('Tambah Data', NOW(), NEW .id_zakat_fitrah, NEW .jenis, NEW .jumlah, NEW .SESSION);
+
+
+CREATE TRIGGER delete_zakat_fitrah
+AFTER
+DELETE ON tbl_zakat_fitrah
+FOR EACH ROW
+INSERT INTO log_zakat_fitrah(aktifitas, waktu, id_zakat, jenis, jumlah, sesi)
+VALUES('Hapus Data', NOW(), OLD .id_zakat_fitrah, OLD .jenis, OLD .jumlah, OLD .SESSION);
+
+CREATE TRIGGER update_zakat_fitrah
+AFTER
+UPDATE ON tbl_zakat_fitrah
+FOR EACH ROW
+INSERT INTO log_zakat_fitrah(aktifitas, waktu, id_zakat, jenis, jumlah, sesi)
+VALUES('Update Data', NOW(), NEW .id_zakat_fitrah, OLD .jenis, OLD .jumlah, OLD .SESSION);
+
+
+CREATE TRIGGER insert_kas
+AFTER
+INSERT ON tbl_kas_masjid
+FOR EACH ROW
+INSERT INTO log_kas(aktifitas, waktu, id_kas, tanggal, ket, pemasukan, pengeluaran, sesi)
+VALUES('Tambah Data', NOW(), NEW .id_kas, NEW .tanggal, NEW .ket, NEW .pemasukan, NEW .pengeluaran, NEW .SESSION);
+
+CREATE TRIGGER delete_kas
+AFTER
+DELETE ON tbl_kas_masjid
+FOR EACH ROW
+INSERT INTO log_kas(aktifitas, waktu, id_kas, tanggal, ket, pemasukan, pengeluaran, sesi)
+VALUES('Hapus Data', NOW(), OLD .id_kas, OLD .tanggal, OLD .ket, OLD .pemasukan, OLD .pengeluaran, OLD .SESSION);
+
+CREATE TRIGGER update_kas
+AFTER
+UPDATE ON tbl_kas_masjid
+FOR EACH ROW
+INSERT INTO log_kas(aktifitas, waktu, id_kas, tanggal, ket, pemasukan, pengeluaran, sesi)
+VALUES('Update Data', NOW(), NEW .id_kas, OLD .tanggal, OLD .ket, OLD .pemasukan, OLD .pengeluaran, NEW .SESSION);
+
+
+
+CREATE TRIGGER insert_zakat_mal
+AFTER
+INSERT ON tbl_zakat_mal
+FOR EACH ROW
+INSERT INTO log_zakat_mal(aktifitas, waktu, id_zakat, jumlah, sesi)
+VALUES('Tambah Data', NOW(), NEW .id_zakat_mal, NEW .jumlah, NEW .SESSION);
+
+CREATE TRIGGER delete_zakat_mal
+AFTER
+DELETE ON tbl_zakat_mal
+FOR EACH ROW
+INSERT INTO log_zakat_mal(aktifitas, waktu, id_zakat, jumlah, sesi)
+VALUES('Delete Data', NOW(), OLD .id_zakat_mal, OLD .jumlah, OLD .SESSION);
+
+CREATE TRIGGER update_zakat_mal
+AFTER
+UPDATE ON tbl_zakat_mal
+FOR EACH ROW
+INSERT INTO log_zakat_mal(aktifitas, waktu, id_zakat, jumlah, sesi)
+VALUES('UPDATE Data', NOW(), NEW .id_zakat_mal, OLD .jumlah, NEW .SESSION);
