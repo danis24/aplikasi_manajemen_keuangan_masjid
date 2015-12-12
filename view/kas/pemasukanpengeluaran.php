@@ -6,17 +6,17 @@
 		<tr><strong>
 			<td>Saldo</td>
 			<td>:</td>
-			<td>Rp. <?php $harga=number_format($hitungPem['hitungPemasukan']-$hitungPen['hitungPengeluaran'],0,",","."); echo $harga; ?>.00,-</td></strong>
+			<td>Rp. <?php $harga=number_format($total,0,",","."); echo $harga; ?>.00,-</td></strong>
 		</tr><br>
 		<tr><strong>
 			<td>Jumlah Pemasukan</td>
 			<td>:</td>
-			<td>Rp. <?php $harga=number_format($hitungPem['hitungPemasukan'],0,",","."); echo $harga; ?>.00,-</td></strong>
+			<td>Rp. <?php $harga=number_format($rowPemasukan,0,",","."); echo $harga; ?>.00,-</td></strong>
 		</tr><br>
 		<tr><strong>
 			<td>Jumlah Pengeluaran</td>
 			<td>:</td>
-			<td>Rp. <?php $harga=number_format($hitungPen['hitungPengeluaran'],0,",","."); echo $harga; ?>.00,-</td></strong>
+			<td>Rp. <?php $harga=number_format($rowPengeluaran,0,",","."); echo $harga; ?>.00,-</td></strong>
 		</tr>
 	</div>
 		<div class="module-body table">

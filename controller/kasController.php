@@ -40,6 +40,9 @@ class kasController{
 		$pengeluaran = $this->model->jumlahPengeluaran();
 		$hitungPem = $this->model->fetch($pemasukan);
 		$hitungPen = $this->model->fetch($pengeluaran);
+		$rowPemasukan = $hitungPem['hitungPemasukan'];
+		$rowPengeluaran = $hitungPen['hitungPengeluaran'];
+		$total = ($rowPemasukan - $rowPengeluaran);
 		include "view/kas/pemasukanpengeluaran.php";
 	}
 
