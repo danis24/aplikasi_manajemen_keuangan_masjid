@@ -6,6 +6,7 @@ class hitungZakatController{
 	public $saham;
 	public $piutang;
 	public $hutang;
+	public $out;
 
 	public function hitungZakat(){
 		include "view/hitung_zakat/hitung.php";
@@ -18,11 +19,15 @@ class hitungZakatController{
 		$selisih = $totalharta - $kewajiban;
 		$zakat = ($selisih * 2.5) / 100;
 
+		$out = "";
 		if($selisih >= $nisab){
-			echo "$zakat";
+			$nilai = $harga=number_format($zakat,0,",",".");
+			$out = "Rp. $nilai.00,-";
 		}else{
-			echo "Tidak Wajib Zakat";
+			$out = "Tidak Wajib Zakat";
 		}
+		include "view/hitung_zakat/detail_hitung.php";
+		return $out;
 	}
 
 	public function nisabPerak($h_perak, $uang = 0, $saham = 0, $piutang = 0, $hutang = 0){
@@ -32,11 +37,15 @@ class hitungZakatController{
 		$selisih = $totalharta - $kewajiban;
 		$zakat = ($selisih * 2.5) / 100;
 
+		$out = "";
 		if($selisih >= $nisab){
-			echo "$zakat";
+			$nilai = $harga=number_format($zakat,0,",",".");
+			$out = "Rp. $nilai.00,-";
 		}else{
-			echo "Tidak Wajib Zakat";
+			$out = "Tidak Wajib Zakat";
 		}
+		include "view/hitung_zakat/detail_hitung.php";
+		return $out;
 	}	
 
 }

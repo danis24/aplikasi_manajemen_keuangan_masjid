@@ -141,12 +141,6 @@ if(@$_SESSION['level'] == 'admin'){
 					</a>
 				</li>
 				<li>
-					<a href="?page=backuprestore">
-						<i class="icon-inbox"></i>
-						Backup & Restore
-					</a>
-				</li>
-				<li>
 					<a href="?page=about">
 						<i class="icon-inbox"></i>
 						About

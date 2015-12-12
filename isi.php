@@ -112,6 +112,20 @@
 			}
 		}else if($page == 'about'){
 			include "view/about.php";
+		}else if($page == 'hitung'){
+			$opsi_nisab = @$_POST['opsi_nisab'];
+			$h_emas = @$_POST['h_emas'];
+			$h_perak = @$_POST['h_perak'];
+			$uang = @$_POST['uang'];
+			$saham = @$_POST['saham'];
+			$piutang = @$_POST['piutang'];
+			$hutang = @$_POST['hutang'];
+			if($opsi_nisab == 'emas'){
+				$hitung->nisabEmas($h_emas, $uang, $saham, $piutang, $hutang);
+			}else{
+				$hitung->nisabPerak($h_perak, $uang, $saham, $piutang, $hutang);
+			}
+
 		}else{
 			echo "Halaman Tidak Tersedia";
 		}
@@ -163,11 +177,24 @@
 			}else{
 				echo "Halaman Tidak Tersedia";
 			}
+		}else if($page == 'hitung'){
+			$opsi_nisab = @$_POST['opsi_nisab'];
+			$h_emas = @$_POST['h_emas'];
+			$h_perak = @$_POST['h_perak'];
+			$uang = @$_POST['uang'];
+			$saham = @$_POST['saham'];
+			$piutang = @$_POST['piutang'];
+			$hutang = @$_POST['hutang'];
+			if($opsi_nisab == 'emas'){
+				$hitung->nisabEmas($h_emas, $uang, $saham, $piutang, $hutang);
+			}else{
+				$hitung->nisabPerak($h_perak, $uang, $saham, $piutang, $hutang);
+			}
+		}else if($page == 'about'){
+			include "view/about.php";
 		}else{
 			echo "Halaman Tidak Tersedia";
 		}
-	}else if($page == 'about'){
-			include "view/about.php";
 	}else{
 		?>
 		<script type="text/javascript">
